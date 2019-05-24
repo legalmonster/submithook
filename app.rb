@@ -10,8 +10,6 @@ post '/post' do
   params.delete(:webhook)
   params.delete(:redirect)
 
-  puts webhook_url
-
   payload = params.to_json
 
   uri = URI.parse(webhook_url)
