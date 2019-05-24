@@ -25,3 +25,7 @@ post '/post' do
 
   redirect redirect_url
 end
+
+get '/' do
+  erb :index
+end
