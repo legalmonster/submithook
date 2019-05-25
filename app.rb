@@ -1,35 +1,50 @@
 require 'sinatra'
+require 'sinatra/reloader' if development?
 require 'net/http'
 require 'json'
-require 'sinatra/reloader' if development?
+require 'sidekiq'
+require 'sidekiq/api'
+require 'redis'
 
-get '/' do
-  erb :index
+Sidekiq.configure_client do |config|
+  config.redis = { url: "redis://#{ENV['REDIS_HOST']}:#{ENV['REDIS_PORT']}" }
 end
 
-post '/post' do
-  webhook_url = params[:webhook]
-  redirect_url = params[:redirect]
+$redis = Redis.new( url: "redis://#{ENV['REDIS_HOST']}:#{ENV['REDIS_PORT']}" )
 
-  params.delete(:webhook)
-  params.delete(:redirect)
+class App < Sinatra::Application
+  get '/' do
+    erb :index
+  end
 
-  payload = params.to_json
+  post '/post' do
+    webhook_url = params[:webhook]
+    redirect_url = params[:redirect]
 
-  request_webhook(webhook_url, payload)
+    params.delete(:webhook)
+    params.delete(:redirect)
 
-  redirect redirect_url
-end
+    payload = params.to_json
 
-def request_webhook(webhook_url, payload)
-  uri = URI.parse(webhook_url)
+    DeliverWebhook.perform_async(webhook_url, payload)
 
-  request = Net::HTTP::Post.new(uri.request_uri)
-  request['Content-Type'] = 'application/json'
-  request.body = payload
+    redirect redirect_url
+  end
 
-  http = Net::HTTP.new(uri.host, uri.port)
-  http.use_ssl = (uri.scheme == 'https')
+  class DeliverWebhook
+    include Sidekiq::Worker
 
-  http.request(request)
+    def perform(webhook_url,payload)
+      uri = URI.parse(webhook_url)
+
+      request = Net::HTTP::Post.new(uri.request_uri)
+      request['Content-Type'] = 'application/json'
+      request.body = payload
+
+      http = Net::HTTP.new(uri.host, uri.port)
+      http.use_ssl = (uri.scheme == 'https')
+
+      http.request(request)
+    end
+  end
 end
