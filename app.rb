@@ -13,11 +13,6 @@ end
 $redis = Redis.new( url: ENV['REDIS_URL'] )
 
 class App < Sinatra::Application
-  configure :production do
-    set :host, 'www.submithook.com'
-    set :force_ssl, true
-  end
-
   get '/' do
     erb :index
   end
