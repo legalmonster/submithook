@@ -5,6 +5,9 @@ require 'json'
 require 'sidekiq'
 require 'sidekiq/api'
 require 'redis'
+require 'rack/ssl-enforcer'
+
+use Rack::SslEnforcer if production?
 
 Sidekiq.configure_client do |config|
   config.redis = { url: ENV['REDIS_URL'] }
