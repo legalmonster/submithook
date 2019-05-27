@@ -1,0 +1,22 @@
+h1, h2, h3, h4, h5 {
+  font-weight: bold;
+  font-family: 'Nunito', sans-serif !important;
+  line-height: normal;
+  margin-bottom: 0.6rem;
+}
+
+p {
+  font-size: 1.1rem;
+  color: #666;
+}
+
+.monster-divider {
+  height: 9px;
+  max-width: 1140px;
+  margin-left: auto;
+  margin-right: auto;
+  background-image: url(monster-divider.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 1140px 9px;
+}
