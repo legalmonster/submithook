@@ -17,12 +17,12 @@
         </div>
       </div>
 
-      <div class="row d-flex justify-content-center">
+      <div class="row d-flex justify-content-center mb-5">
         <div class="col-6 mt-5 text-center">
           <h2>Demo</h2>
           <p class="mb-3">Try off Submit Hook to see how it works. This will trigger a webhook from Zapier that will send you an email.</p>
           <form class="" action="https://www.submithook.com/" method="post">
-            <input type="hidden" name="webhook" value="">
+            <input type="hidden" name="webhook" value="https://hooks.zapier.com/hooks/catch/3521058/vd34a7/">
             <input type="hidden" name="redirect" value="https://www.submithook.com/demo/">
 
             <div class="row align-items-center">
@@ -41,10 +41,13 @@
         </div>
       </div>
 
-      <div class="row d-flex justify-content-center">
-        <div class="col-6 mt-5 text-center">
+      <div class="row d-flex justify-content-center mb-5">
+        <div class="col-6 text-center">
           <h2>Documentation</h2>
-          <p class="mb-5">Try off Submit Hook to see how it works</p>
+          <p>Using Submit Hook is very easy, just point your form's action to https://www.submithook.com and add two hidden fields, one with the URL of the webhook you want us to call, and one with the URL your user should be redirected to after submitting the form. Like this:</p>
+          <script src="https://gist.github.com/stephenson/9eb5a2f0295c73f51e146ec822d9fc69.js"></script>
+
+          <p>The only things required is: The method need to be post and the form needs to include the two hidden fileds from the above example.</p>
           <div class="monster-divider"></div>
         </div>
       </div>
