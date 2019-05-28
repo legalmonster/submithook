@@ -6,21 +6,7 @@
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,300,400,600,700,800,900|Nunito+Sans:200,300,400,600,700,800,900" rel="stylesheet">
   <link rel="stylesheet" href="/site.css">
   <script>
-      !function () {
-          var r, e, n, s = window.legal = window.legal || [];
-          if (s.SNIPPET_VERSION = "1.2.5", r = "https://widgets.legalmonster.com/v1/legal.js", !s.__VERSION__) if (s.invoked) window.console && console.error && console.error("Legal.js snippet included twice on page."); else {
-              for (s.invoked = !0, s.methods = ["document", "signup", "user", "ensureConsent", "enableImpliedConsent"], s.factory = function (n) {
-                  return function () {
-                      var e = Array.prototype.slice.call(arguments);
-                      return e.unshift(n), s.push(e), s
-                  }
-              }, e = 0; e < s.methods.length; e++) n = s.methods[e], s[n] = s.factory(n);
-              s.load = function (e, n) {
-                  var t, o = document.createElement("script");
-                  o.type = "text/javascript", o.async = !0, o.src = r, (t = document.getElementsByTagName("script")[0]).parentNode.insertBefore(o, t), s.__project = e, s.__loadOptions = n || {}
-              }
-          }
-      }();
+      !function(){var r,e,n,s=window.legal=window.legal||[];if(s.SNIPPET_VERSION="1.2.5",r="https://widgets.legalmonster.com/v1/legal.js",!s.__VERSION__)if(s.invoked)window.console&&console.error&&console.error("Legal.js snippet included twice on page.");else{for(s.invoked=!0,s.methods=["document","signup","user","ensureConsent","enableImpliedConsent"],s.factory=function(n){return function(){var e=Array.prototype.slice.call(arguments);return e.unshift(n),s.push(e),s}},e=0;e<s.methods.length;e++)n=s.methods[e],s[n]=s.factory(n);s.load=function(e,n){var t,o=document.createElement("script");o.type="text/javascript",o.async=!0,o.src=r,(t=document.getElementsByTagName("script")[0]).parentNode.insertBefore(o,t),s.__project=e,s.__loadOptions=n||{}}}}();
 
       legal.load("riKtY9p2vxhMhRwJE747wjby");
       legal.signup("signup-consent");
