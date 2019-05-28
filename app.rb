@@ -6,6 +6,7 @@ require 'sidekiq'
 require 'sidekiq/api'
 require 'redis'
 require 'rack/ssl-enforcer'
+require "addressable/uri"
 
 use Rack::SslEnforcer if production?
 
@@ -21,7 +22,7 @@ class App < Sinatra::Application
   end
 
   get '/demo' do
-    erb :demo
+    erb :demo, :params => JSON.pretty_generate(params)
   end
 
   post '/' do
@@ -35,7 +36,10 @@ class App < Sinatra::Application
 
     DeliverWebhook.perform_async(webhook_url, payload)
 
-    redirect redirect_url
+    uri = Addressable::URI.parse(redirect_url)
+    uri.query_values = params
+
+    redirect uri.to_s
   end
 
   class DeliverWebhook

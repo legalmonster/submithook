@@ -12,7 +12,6 @@
       legal.load("riKtY9p2vxhMhRwJE747wjby");
       legal.signup("signup-consent");
   </script>
-
 </head>
 <body>
 <div class="container">
@@ -29,11 +28,12 @@
   <div class="row d-flex justify-content-center mb-5">
     <div class="col col-lg-6 mt-5 text-center">
       <h2>Demo</h2>
-      <p class="mb-3">Try off Submit Hook to see how it works. This will trigger a webhook from Zapier that will send
-        you an email.</p>
-      <form class="" action="https://www.submithook.com/" method="post">
-        <input type="hidden" name="webhook" value="https://hooks.zapier.com/hooks/catch/3521058/vd34a7/">
-        <input type="hidden" name="redirect" value="https://www.submithook.com/demo">
+      <p class="mb-3">Take Submit Hook for a spin to see how it works. This will trigger a webhook to Zapier that will send
+        you an email. You can setup your own Zapier <a href="https://zapier.com/sign-up/">here</a> or use and entirely different service</p>
+      <p class="mb-3"><b> We will not send you any spam! Except for this email :)</b></p>
+      <form class="" action="<%= ENV['APP_URL']%>" method="post">
+        <input type="hidden" name="webhook" value="<%= ENV['ZAPIER_WEBHOOK_URL']%>">
+        <input type="hidden" name="redirect" value="<%= ENV['APP_URL']%>/demo">
 
         <div class="row align-items-center">
           <div class="col mt-4">
@@ -56,32 +56,26 @@
       <div class="monster-divider"></div>
     </div>
   </div>
-
   <div class="row d-flex justify-content-center">
     <div class="col col-lg-10 text-center  mb-5">
       <h2 class="mb-5">Our usecase</h2>
       <div class="row">
         <div class="col mb-5 mb-lg-0"><img src="/lm-flow.png"></div>
-        <div class="col text-left">
-          <p>At <a href="https://www.legalmonster.com">Legal Monster</a>, we needed a way to capture data from forms on our static website, check for GDPR consent, do lead scoring on the person and the post the information to our CRM.</p>
+          <div class="col text-left">
+            <p>At <a href="https://www.legalmonster.com">Legal Monster</a>, we needed a way to capture data from forms on our static website, check for GDPR consent, do lead scoring on the person and the post the information to our CRM.</p>
 
-          <p>We could have solved this by writing a reasonably significant process in code, but processes like this are relatively complex to code, and they change often making them a considerable pain to maintain.</p>
+            <p>We could have solved this by writing a reasonably significant process in code, but processes like this are relatively complex to code, and they change often making them a considerable pain to maintain.</p>
 
-          <p>We are, like you correctly guessed, big fans of <a href="https://zapier.com">Zapier</a>, all we needed to tie a form together with a complex Zapier flow was Submit hook, so we spend a weekend on it :)</p>
+            <p>We are, like you correctly guessed, big fans of <a href="https://zapier.com">Zapier</a>, all we needed to tie a form together with a complex Zapier flow was Submit hook, so we spend a weekend on it :)</p>
 
-          <p>In our use case we have a straightforward signup form, when that form gets submitted we run the Zapier flow on the left, this will filter out people that did not give consent to process their data, then it will use <a href="https://zapier.com/help/lead-score-by-zapier/">Zapiers lead scoring</a> to find more information on the person before it submits the data to our CRM, <a href="https://www.close.com">Close</a>. In the end, our CRO Anthony will be notified so he can reach out to the prospect.</p>
+            <p>In our use case we have a straightforward signup form, when that form gets submitted we run the Zapier flow on the left, this will filter out people that did not give consent to process their data, then it will use <a href="https://zapier.com/help/lead-score-by-zapier/">Zapiers lead scoring</a> to find more information on the person before it submits the data to our CRM, <a href="https://www.close.com">Close</a>. In the end, our CRO Anthony will be notified so he can reach out to the prospect.</p>
+        </div>
       </div>
     </div>
   </div>
 
-  <div class="row d-flex justify-content-center mb-5">
-    <div class="col col-lg-6 text-center">
-      <div class="monster-divider"></div>
-      <div class="mt-5">
-        <%= erb :_documentation %>
-      </div>
-    </div>
-  </div>
+  <%= erb :_documentation %>
+
   <%= erb :_footer %>
 </div>
 </body>
