@@ -1,56 +1,88 @@
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Submit Hook</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,300,400,600,700,800,900|Nunito+Sans:200,300,400,600,700,800,900" rel="stylesheet">
-    <link rel="stylesheet" href="/site.css">
-  </head>
-  <body>
-    <div class="container">
-      <div class="row d-flex justify-content-center">
-        <div class="col-6 text-center mt-5">
-          <img src="/pirate-sven.svg" class="mb-4" style="width: 150px;">
-          <h1 class="mb-4">Submit Hook</h1>
-          <p class="mb-5">Submit Hook lets you send content from a form on a static website to a webhook and redirect the user to a page.</p>
-          <div class="monster-divider"></div>
-        </div>
-      </div>
+<head>
+  <meta charset="utf-8">
+  <title>Submit Hook</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:200,300,400,600,700,800,900|Nunito+Sans:200,300,400,600,700,800,900" rel="stylesheet">
+  <link rel="stylesheet" href="/site.css">
+  <script>
+      !function () {
+          var r, e, n, s = window.legal = window.legal || [];
+          if (s.SNIPPET_VERSION = "1.2.5", r = "https://widgets.legalmonster.com/v1/legal.js", !s.__VERSION__) if (s.invoked) window.console && console.error && console.error("Legal.js snippet included twice on page."); else {
+              for (s.invoked = !0, s.methods = ["document", "signup", "user", "ensureConsent", "enableImpliedConsent"], s.factory = function (n) {
+                  return function () {
+                      var e = Array.prototype.slice.call(arguments);
+                      return e.unshift(n), s.push(e), s
+                  }
+              }, e = 0; e < s.methods.length; e++) n = s.methods[e], s[n] = s.factory(n);
+              s.load = function (e, n) {
+                  var t, o = document.createElement("script");
+                  o.type = "text/javascript", o.async = !0, o.src = r, (t = document.getElementsByTagName("script")[0]).parentNode.insertBefore(o, t), s.__project = e, s.__loadOptions = n || {}
+              }
+          }
+      }();
 
-      <div class="row d-flex justify-content-center mb-5">
-        <div class="col-6 mt-5 text-center">
-          <h2>Demo</h2>
-          <p class="mb-3">Try off Submit Hook to see how it works. This will trigger a webhook from Zapier that will send you an email.</p>
-          <form class="" action="https://www.submithook.com/" method="post">
-            <input type="hidden" name="webhook" value="https://hooks.zapier.com/hooks/catch/3521058/vd34a7/">
-            <input type="hidden" name="redirect" value="https://www.submithook.com/demo/">
+      legal.load("riKtY9p2vxhMhRwJE747wjby");
+      legal.signup("signup-consent");
+  </script>
 
-            <div class="row align-items-center">
-              <div class="col mt-4">
-                <input name="name" type="text" class="form-control" placeholder="Your Name">
-              </div>
-            </div>
-            <div class="row align-items-center mt-4">
-              <div class="col">
-                <input name="email" type="email" class="form-control" placeholder="Email">
-              </div>
-            </div>
-            <button class="btn btn-primary mt-4 mb-5 btn-lg">Test Submit Hook</button>
-          </form>
-          <div class="monster-divider"></div>
-        </div>
-      </div>
-
-      <div class="row d-flex justify-content-center mb-5">
-        <div class="col-6 text-center">
-          <h2>Documentation</h2>
-          <p>Using Submit Hook is very easy, just point your form's action to https://www.submithook.com and add two hidden fields, one with the URL of the webhook you want us to call, and one with the URL your user should be redirected to after submitting the form. Like this:</p>
-          <script src="https://gist.github.com/stephenson/9eb5a2f0295c73f51e146ec822d9fc69.js"></script>
-
-          <p>The only things required is: The method need to be post and the form needs to include the two hidden fileds from the above example.</p>
-          <div class="monster-divider"></div>
-        </div>
-      </div>
+</head>
+<body>
+<div class="container">
+  <div class="row d-flex justify-content-center">
+    <div class="col-6 text-center mt-5">
+      <img src="/pirate-sven.svg" class="mb-4" style="width: 150px;">
+      <h1 class="mb-4">Submit Hook</h1>
+      <p class="mb-5">Submit Hook lets you send content from a form on a static website to a webhook as JSON and redirect the
+        user to a page afterwards.</p>
+      <div class="monster-divider"></div>
     </div>
-  </body>
+  </div>
+
+  <div class="row d-flex justify-content-center mb-5">
+    <div class="col-6 mt-5 text-center">
+      <h2>Demo</h2>
+      <p class="mb-3">Try off Submit Hook to see how it works. This will trigger a webhook from Zapier that will send
+        you an email.</p>
+      <form class="" action="https://www.submithook.com/" method="post">
+        <input type="hidden" name="webhook" value="https://hooks.zapier.com/hooks/catch/3521058/vd34a7/">
+        <input type="hidden" name="redirect" value="https://www.submithook.com/demo/">
+
+        <div class="row align-items-center">
+          <div class="col mt-4">
+            <input name="name" type="text" class="form-control" placeholder="Your Name">
+          </div>
+        </div>
+        <div class="row align-items-center mt-4">
+          <div class="col">
+            <input name="email" type="email" class="form-control" placeholder="Email">
+          </div>
+        </div>
+        <div class="row align-items-center mt-4">
+          <div class="col">
+            <div id="signup-consent"></div>
+          </div>
+        </div>
+
+        <button class="btn btn-primary mt-4 mb-5 btn-lg">Test Submit Hook</button>
+      </form>
+      <div class="monster-divider"></div>
+    </div>
+  </div>
+
+  <div class="row d-flex justify-content-center mb-5">
+    <div class="col-6 text-center">
+      <h2>Documentation</h2>
+      <p>Using Submit Hook is very easy, just point your form's action to https://www.submithook.com and add two hidden
+        fields, one with the URL of the webhook you want us to call, and one with the URL your user should be redirected
+        to after submitting the form. Like this:</p>
+      <script src="https://gist.github.com/stephenson/9eb5a2f0295c73f51e146ec822d9fc69.js"></script>
+
+      <p>The only things required is: The method need to be post and the form needs to include the two hidden fileds
+        from the above example.</p>
+      <div class="monster-divider"></div>
+    </div>
+  </div>
+</div>
+</body>
 </html>

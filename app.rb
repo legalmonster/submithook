@@ -20,6 +20,10 @@ class App < Sinatra::Application
     erb :index
   end
 
+  get '/demo' do
+    erb :demo
+  end
+
   post '/' do
     webhook_url = params[:webhook]
     redirect_url = params[:redirect]
