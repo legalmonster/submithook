@@ -15,14 +15,20 @@
       <h1 class="mb-4">Submit Hook Demo</h1>
       <p class="mb-5">Thank you for testing Submithook.com, now go check your email!</p>
       <div class="monster-divider"></div>
+      <br>
+      <h2>Submitted data</h2>
     </div>
   </div>
 
   <div class="row d-flex justify-content-center mt-5 mb-5">
-    <div class="col col-lg-6 text-center">
-      <%= erb :_documentation %>
+    <div class="col col-lg-6">
+      <pre>
+<%= JSON.pretty_generate(params) %>
+      </pre>
     </div>
   </div>
+  <%= erb :_documentation %>
+
   <%= erb :_footer %>
 </div>
 </body>
