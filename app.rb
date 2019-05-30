@@ -18,28 +18,34 @@ $redis = Redis.new( url: ENV['REDIS_URL'] )
 
 class App < Sinatra::Application
   get '/' do
-    erb :index
+    erb :index, :layout => :layout
   end
 
   get '/demo' do
-    erb :demo, :params => JSON.pretty_generate(params)
+    erb :demo, :params => JSON.pretty_generate(params), :layout => :layout
   end
 
   post '/' do
     webhook_url = params[:webhook]
     redirect_url = params[:redirect]
 
-    params.delete(:webhook)
-    params.delete(:redirect)
+    if webhook_url.nil?
+      erb :missing_webhook, :layout => :layout
+    elsif redirect_url.nil?
+      erb :missing_redirect_url, :layout => :layout
+    else
+      params.delete(:webhook)
+      params.delete(:redirect)
 
-    payload = params.to_json
+      payload = params.to_json
 
-    DeliverWebhook.perform_async(webhook_url, payload)
+      DeliverWebhook.perform_async(webhook_url, payload)
 
-    uri = Addressable::URI.parse(redirect_url)
-    uri.query_values = params
+      uri = Addressable::URI.parse(redirect_url)
+      uri.query_values = params
 
-    redirect uri.to_s
+      redirect uri.to_s
+    end
   end
 
   class DeliverWebhook
