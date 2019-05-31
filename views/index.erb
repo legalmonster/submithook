@@ -2,8 +2,8 @@
     <div class="col col-lg-6 text-center mt-5">
       <img src="/pirate-sven.svg" class="mb-4" style="width: 150px;">
       <h1 class="mb-4">Submit Hook</h1>
-      <p class="mb-5">Submit Hook lets you send content from a form on a static website to a webhook as JSON and redirect the
-        user to a page afterwards.</p>
+      <p class="lead mb-5"><b>Submit Hook lets you send content from a form on a static website to a webhook as JSON and redirect the
+        user to a page afterwards. 🤘</b></p>
       <div class="monster-divider"></div>
     </div>
   </div>
@@ -12,8 +12,7 @@
     <div class="col col-lg-6 mt-5 text-center">
       <h2>Demo</h2>
       <p class="mb-3">Take Submit Hook for a spin to see how it works. This will trigger a webhook to Zapier that will send
-        you an email. You can setup your own Zapier <a href="https://zapier.com/sign-up/">here</a> or use and entirely different service</p>
-      <p class="mb-3"><b> We will not send you any spam! Except for this email :)</b></p>
+        you an email. You can setup your own Zapier <a href="https://zapier.com/sign-up/">here</a> or use and entirely different service.</p>
       <form class="" action="<%= ENV['APP_URL']%>" method="post">
         <input type="hidden" name="webhook" value="<%= ENV['ZAPIER_WEBHOOK_URL']%>">
         <input type="hidden" name="redirect" value="<%= ENV['APP_URL']%>/demo">
@@ -33,7 +32,7 @@
             <div id="signup-consent"></div>
           </div>
         </div>
-
+        <p class="mb-3"><small>We will not send you any spam! All we send is this email 😇</small></p>
         <button class="btn btn-primary mt-4 mb-5 btn-lg">Test Submit Hook</button>
       </form>
       <div class="monster-divider"></div>
@@ -49,7 +48,7 @@
 
             <p>We could have solved this by writing a reasonably significant process in code, but processes like this are relatively complex to code, and they change often making them a considerable pain to maintain.</p>
 
-            <p>We are, like you correctly guessed, big fans of <a href="https://zapier.com">Zapier</a>, all we needed to tie a form together with a complex Zapier flow was Submit hook, so we spend a weekend on it :)</p>
+            <p>We are, like you correctly guessed, big fans of <a href="https://zapier.com">Zapier</a>, all we needed to tie a form together with a complex Zapier flow was Submit hook, so we spend a weekend on it 😃</p>
 
             <p>In our use case we have a straightforward signup form, when that form gets submitted we run the Zapier flow on the left. First it will hit a <a href="https://zapier.com/help/webhooks/">Zapier webhook</a>, then it will filter out people that did not give consent to process their data, then it will use <a href="https://zapier.com/help/lead-score-by-zapier/">Zapiers lead scoring</a> to find more information on the person before it submits the data to our CRM, <a href="https://www.close.com">Close</a>. In the end, our CRO Anthony will be notified so he can reach out to the prospect.</p>
         </div>
