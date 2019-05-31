@@ -1,13 +1,25 @@
 <div class="row d-flex justify-content-center mb-5">
-  <div class="col col-lg-6 text-center">
+  <div class="col col-lg-6">
     <div class="monster-divider mb-5"></div>
-    <h2>Documentation</h2>
-    <p>Using Submit Hook is very easy, just point your form's action to https://www.submithook.com and add two hidden
-      fields, one with the URL of the webhook you want us to call, and one with the URL your user should be redirected
-      to after submitting the form. Like this:</p>
+    <h2 class="mb-5 text-center">Documentation</h2>
+
+    <h4>1. Post to Submit Hook</h4>
+    <p>Submit Hook works by you defining submithook.com as the action of your normal HTML form, make sure the method is post.</p>
+
+    <script src="https://gist.github.com/stephenson/49f88b17ffdd65252cce41988662dd52.js"></script>
+
+    <h4 class="mt-5">2. Define what webhook we should call</h4>
+    <p>The URL for the webhook is defined as a hidden filed within the form. It needs to be a valid webhook URL that can accept JSON in the body.</p>
+    <script src="https://gist.github.com/stephenson/a63cb32ef0ebcee55638e8494a059277.js"></script>
+
+    <h4 class="mt-5">3. Define redirect URL</h4>
+    <p>This defines what URL your user should be redirected to after the form has ben submitted. It's important that this is the full URL.</p>
+    <script src="https://gist.github.com/stephenson/31df73bccf929b0874db4b7bbc9d9768.js"></script>
+
+    <h4 class="mt-5">4. Add all the fields you wish</h4>
+    <p>Now you can add all the input fields you wish to! Every field will be pushed to the defined webhook and they will be defined as URL parramaters on your redirect page. We don't support file uploads.</p>
+    <p>The finished implementation looks like this:</p>
     <script src="https://gist.github.com/stephenson/9eb5a2f0295c73f51e146ec822d9fc69.js"></script>
 
-    <p>The only things required is: The method need to be post and the form needs to include the two hidden fields
-      from the above example.</p>
   </div>
 </div>
