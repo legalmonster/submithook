@@ -18,6 +18,8 @@ $redis = Redis.new( url: ENV['REDIS_URL'] )
 
 class App < Sinatra::Application
   get '/' do
+    stats = Sidekiq::Stats.new
+    @processed = stats.processed
     erb :index, :layout => :layout
   end
 
