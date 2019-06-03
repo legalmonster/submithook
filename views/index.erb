@@ -12,7 +12,7 @@
     <div class="col col-lg-6 mt-5 text-center">
       <h2>Demo</h2>
       <p class="mb-3">Take Submit Hook for a spin to see how it works. This will trigger a webhook to Zapier that will send
-        you an email. You can setup your own Zapier <a href="https://zapier.com/sign-up/">here</a> or use and entirely different service.</p>
+        you an email. You can setup your own Zapier <a href="https://zapier.com/sign-up/">here</a> or use an entirely different service.</p>
       <form class="" action="<%= ENV['APP_URL']%>" method="post">
         <input type="hidden" name="webhook" value="<%= ENV['ZAPIER_WEBHOOK_URL']%>">
         <input type="hidden" name="redirect" value="<%= ENV['APP_URL']%>/demo">
