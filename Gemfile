@@ -7,6 +7,7 @@ gem 'sidekiq'
 gem 'redis'
 gem 'rack-ssl-enforcer'
 gem 'addressable'
+gem 'sqreen'
 
 group :production do
   gem "puma"
